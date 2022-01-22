@@ -4,4 +4,8 @@
   
   Mypet foi desenvolvido com as seguintes tecnologias:
   
-		Express.js, Node.js, JavaScript, Handlebars, HTML5 e CSS3
+		Express.js, Node.js,Sequelize ORM, JavaScript, Handlebars, HTML5 e CSS3
+		
+
+
+	

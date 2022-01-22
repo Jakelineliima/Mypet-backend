@@ -1,0 +1,86 @@
+<section class="sectionficha">
+  <form action="/addficha" method="POST">
+
+    <div class="preencher">
+
+      <h5 class="titleficha">Dados do tutor</h5> 
+      <div class="inputs">
+        <div>
+          <p>Nome</p>
+          <input type="text" name="nome" placeholder="Nome completo" />
+        </div>
+
+        <div>
+          <p>CPF</p>
+          <input type="text" name="cpf" id="cpf" placeholder="000-000-000-00"/>
+        </div>
+      </div>
+
+      <div class="inputs">
+
+        <div>
+          <p>Email</p>
+          <input type="email" name="email" placeholder="exemplo@gmail.com" />
+        </div>
+        <div>
+          <p>Telefone</p>
+          <input type="text" name="phone" id="telefone" placeholder="(00) 99999-9999" />
+        </div>
+      </div>
+
+      <div class="inputs">
+        <div>
+          <p>Endereço</p>
+          <input type="text" name="ruanumber" placeholder="Rua e número" />
+        </div>
+
+        <div>
+          <p>Bairro</p>
+          <input type="text" name="bairro" placeholder="Nome do bairro" />
+        </div>
+      </div>
+
+      <hr class="fichahr" />
+
+      <h5 class="titleficha">Dados do pet</h5>
+
+      <div class="inputs">
+        <div>
+          <p>Nome</p>
+          <input type="text" name="nomepet" placeholder="Nome do pet" />
+        </div>
+
+        <div>
+          <p>Idade</p>
+          <input type="text" name="idade" placeholder="Somente anos" />
+        </div>
+      </div>
+
+      <div class="inputs">
+        <div>
+          <p>Peso</p>
+          <input type="text" name="peso" id="peso" placeholder="00,0" />
+        </div>
+
+        <div>
+          <p>Raça</p>
+          <input type="text" name="raca" placeholder="Vira-lata" />
+        </div>
+      </div>
+
+      <div class="inputs">
+        <p>Especie:  </p>
+        <select name="especie" class="especie">
+          <option value="cachorro">Cachorro</option>
+          <option value="gato">Gato</option>
+        </select>
+      </div>
+    </div>
+
+    <button type="submit" class="btns btnficha">Cadastrar meu pet</button>
+  </form>
+
+  <img src="/img/ficha-img.png" alt="Imagem de um cachorro com óculos" class="imgficha" />
+
+</section>
+

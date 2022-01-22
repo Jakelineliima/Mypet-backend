@@ -1,0 +1,241 @@
+/* ====== Variables Css ====== */
+
+:root {
+    /* === Font Familys === */
+    --font: 'Inter', sans-serif;
+    /* === Headline / Font Sizes === */
+    --h1: 2.5rem;
+    --h2: 1.5rem;
+    --h3: 1.25rem;
+    --h4: 1rem;
+    --body-normal: .1rem;
+    --body-small: .875rem;
+}
+
+
+/* ====== Colors ======= */
+
+:root {
+    /* === Primary === */
+    --p-100: #7B61FF;
+    --p-80: #9581FF;
+    --p-60: #B0A0FF;
+    --p-40: #CAC0FF;
+    --p-20: #E5DFFF;
+    --p-10: #F2EFFF;
+    /* === Dark === */
+    --d-100: #202020;
+    --d-80: #4D4D4D;
+    --d-60: #797979;
+    --d-40: #A6A6A6;
+    --d-20: #D2D2D2;
+    /* === White === */
+    --W-100: #FFFFFF;
+    --W-80: #FAFAFA;
+    --W-60: #F5F5F5;
+    --W-40: #EFEFEF;
+    --W-20: #EAEAEA;
+    /* === Success === */
+    --s-100: #39F256;
+    --s-80: #60F578;
+    --s-60: #88F79A;
+    --s-40: #B0FABB;
+    --s-20: #D7FCDD;
+    --s-10: #EBFEEE;
+    /* === Error === */
+    --s-100: #F23987;
+    --s-80: #F5609F;
+    --s-60: #F788B7;
+    --s-40: #FAB0CF;
+    --s-20: #FCD7E7;
+    --s-10: #FEEBF3;
+}
+
+
+/* ====== Reset ====== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+body {
+    font-family: var(--font);
+    scroll-behavior: smooth;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+}
+
+p,
+a {
+    color: var(--d-60);
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    line-height: 1.6;
+    color: var(--p-100);
+}
+
+
+/* ====== Classes ====== */
+
+
+/* No container use ele para alinhar ao centro os elementos
+e para dar o espaço em branco neceessario. */
+
+.container {
+    max-width: 1300px;
+    padding: 64px 0;
+    margin: 120px auto;
+}
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.flex-center {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.social-media {
+    display: flex;
+    gap: 16px;
+}
+
+.social-media i {
+    color: var(--d-60);
+    font-size: var(--h2);
+    border-radius: 30px;
+    transition: all 200ms ease;
+    padding: 8px;
+}
+
+.social-media i:hover {
+    color: var(--white);
+    background-color: var(--primary-dark);
+    transform: translate(-2px);
+    border-radius: 30px;
+}
+
+
+/* ====== Components ====== */
+
+
+/* ===  Buttons === */
+
+.btn {
+    display: inline-block;
+    padding: 16px 40px;
+    font-size: var(--body-small);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    transition: all 200ms ease;
+    color: var(--W-100);
+    border-radius: 4px;
+    background-color: var(--p-100);
+}
+
+.btn:hover {
+    background-color: var(--p-80);
+}
+
+.btn:active {
+    background-color: var(--p-60);
+}
+
+
+/* === Inputs === */
+
+label {
+    font-size: var(--body-small);
+    display: block;
+    margin: 20px 0 16px 0;
+    color: var(--d-60);
+}
+
+input {
+    max-width: 420px;
+    padding: 16px;
+    border: 1px solid var(--d-20);
+    border-radius: 4px;
+}
+
+input:focus {
+    outline-color: var(--p-100);
+    background-color: transparent;
+}
+
+
+/* ===  Header === */
+
+.main-header {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 24px 5px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--W-100);
+}
+
+.admin-header {
+    width: 220px;
+    padding: 24px 5px;
+    justify-content: space-between;
+    flex-direction: column;
+    background-color: var(--W-100);
+}
+
+.nav-links {
+    gap: 20px;
+    list-style: none;
+}
+
+.nav-link {
+    padding: 20px;
+    font-size: var(--body-small);
+    transition: all 300ms ease;
+}
+
+.nav-link:hover {
+    color: var(--primary-main);
+}
+
+#btn-mobile {
+    display: none;
+}
+
+/* === Footer === */
+
+.main-footer {
+    flex-direction: column;
+    background-color: var(--W-80);
+    padding: 64px 15px;
+}
+
+.main-footer .social-media {
+    padding: 40px;
+}

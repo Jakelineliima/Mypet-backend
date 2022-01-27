@@ -5,10 +5,10 @@ const handlebars = require("express-handlebars");
 const { engine } = require("express-handlebars");
 const bodyParser = require("body-parser");
 const { application } = require("express");
-const Ficha = require('./models/Ficha');
-const Texto = require('./models/Texto');
-// const port = 8080;
-
+const Ficha = require("./models/Ficha");
+const Texto = require("./models/Texto");
+const Sobre = require("./models/Sobre");
+const Imagem = require("./models/Imagem");
 
 // CONFIGURAÇÃOES
 
@@ -34,17 +34,17 @@ app.use(express.static("views/public"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-
 // ROTAS
 
 app.get("/", (req, res) => {
-res.render("home", {layout: "main"});
-})
+  Texto.findAll().then(function (texto) {
+    res.render("home", { layout: "main", texto: texto });
+  });
+});
 
 app.get("/ficha", (req, res) => {
   res.render("ficha", { layout: "main" });
 });
-
 
 // Cadastro
 
@@ -74,12 +74,14 @@ app.post("/addficha", (req, res) => {
 
 app.get("/deletar/:id", (req, res) => {
   Ficha.destroy({
-    where: { 'id': req.params.id }
-  }).then(function () {
-    res.redirect('/lista');
-  }).catch(function (erro) {
-    res.send('Ocorreu um erro:  ' + erro)
-  });
+    where: { id: req.params.id },
+  })
+    .then(function () {
+      res.redirect("/lista");
+    })
+    .catch(function (erro) {
+      res.send("Ocorreu um erro:  " + erro);
+    });
 });
 
 // ======== ROTAS ADMINISTRATIVA ========= //
@@ -102,6 +104,7 @@ app.get("/duvidas", (req, res) => {
   res.render("duvidas");
 });
 
+// Textos
 app.get("/textos", (req, res) => {
   res.render("textos");
 });
@@ -109,7 +112,7 @@ app.get("/textos", (req, res) => {
 app.post("/textosadd", (req, res) => {
   Texto.create({
     titulo: req.body.titulo,
-    conteudo: req.body.conteudo, 
+    conteudo: req.body.conteudo,
   })
     .then(function () {
       res.redirect("/admin");
@@ -119,7 +122,78 @@ app.post("/textosadd", (req, res) => {
     });
 });
 
+app.get("/textolista", (req, res) => {
+  Texto.findAll().then(function (texto) {
+    res.render("textolista", { texto: texto });
+  });
+});
 
+app.get("/deletartexto/:id", (req, res) => {
+  Texto.destroy({
+    where: { id: req.params.id },
+  })
+    .then(function () {
+      res.redirect("/lista");
+    })
+    .catch(function (erro) {
+      res.send("Ocorreu um erro:  " + erro);
+    });
+});
+
+// Sobre
+app.get("/sobre", (req, res) => {
+  res.render("sobre");
+});
+
+app.post("/sobreadd", (req, res) => {
+  Sobre.create({
+    titulo: req.body.titulo,
+    conteudo: req.body.conteudo,
+  })
+    .then(function () {
+      res.redirect("/admin");
+    })
+    .catch(function (erro) {
+      res.send("Houve um erro:  " + erro);
+    });
+});
+
+app.get("/sobrelista", (req, res) => {
+  Sobre.findAll().then(function (sobre) {
+    res.render("sobrelista", { sobre: sobre });
+  });
+});
+
+app.get("/deletarsobre/:id", (req, res) => {
+  Sobre.destroy({
+    where: { id: req.params.id },
+  })
+    .then(function () {
+      res.redirect("/lista");
+    })
+    .catch(function (erro) {
+      res.send("Ocorreu um erro:  " + erro);
+    });
+});
+
+// Imagens
+
+app.get("/imagem", (req, res) => {
+    res.render("imagem");
+
+});
+
+app.post("/imgadd", (req, res) => {
+  Imagem.create({
+    imagem: req.body.imagem,
+  })
+    .then(function () {
+      res.redirect("/admin");
+    })
+    .catch(function (erro) {
+      res.send("Houve um erro:  " + erro);
+    });
+});
 
 //  SERVIDOR
 

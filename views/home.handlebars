@@ -2,14 +2,15 @@
  
  <!-- ====== Hero ====== -->
       <section class="hero" id="home">
+        {{#each texto}}
         <div class="grid flexDiv">
-          <h3 class="title">Porque é importante vacinar meu pet?</h3>
+          <h3 class="title">{{titulo}}</h3>
           <p>
-            A vacinação é um cuidado essencial, pois por meio dela seu pet fica
-            protegido de doença infecciosas que podem até ser fatais.
+           {{conteudo}}
           </p>
          <a href="/ficha"> <button class="btns">vacinar meu pet</button> </a> 
         </div>
+        {{/each}}
         <div class="grid">
           <img src="/img/hero-img.png" alt="" />
         </div>
@@ -21,14 +22,12 @@
             <img src="/img/sobre-img.png" alt="">
           </div>
           <div class="grid flexDiv">
-            <h3 class="title">É gratuito a proteção para seu pet.</h3>
+            {{#each sobre}}
+            <h3 class="title">{{titulo}}</h3>
             <p>
-              A campanha é necessária para cuidar dos nossos
-              pets, pois promove proteção contra a raiva que
-              pode ser fatal, vacinar seu animal é de extrema
-              importância pois assim você protege ele e outros
-              animais.
+             {{conteudo}}
             </p>
+            {{/each}}
           </div>
       </section>
 

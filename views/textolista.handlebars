@@ -1,0 +1,12 @@
+<section class="hero" id="home">
+  {{#each texto}}
+    <div class="grid flexDiv">
+      <h3 class="title">{{titulo}}</h3>
+      <p>
+        {{conteudo}}
+      </p>
+      <a href="/deletartexto/{{id}}"> <button class="btns">Excluir</button> </a>
+    </div>
+  {{/each}}
+
+</section>

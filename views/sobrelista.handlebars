@@ -1,0 +1,11 @@
+<section class="sobre" id="sobre">
+  {{#each sobre}}
+  <div class="grid flexDiv">
+    <h3 class="title">{{titulo}}</h3>
+    <p>
+     {{conteudo}}
+    </p>
+     <a href="/deletarsobre/{{id}}"> <button class="btns">Excluir</button> </a>
+  {{/each}}
+  </div>
+</section>
